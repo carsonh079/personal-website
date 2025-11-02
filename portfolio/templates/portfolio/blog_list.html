@@ -1,0 +1,29 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Blog - Portfolio{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="page-header">
+        <h1>Blog Posts</h1>
+        <p>Insights, tutorials, and thoughts on data analysis and engineering</p>
+    </section>
+
+    <section class="blog-posts">
+        {% if posts %}
+            <div class="blog-list">
+                {% for post in posts %}
+                <article class="blog-card">
+                    <h2 class="blog-title">{{ post.title }}</h2>
+                    <p class="blog-date">{{ post.created_at|date:"F d, Y" }}</p>
+                    <p class="blog-excerpt">{{ post.excerpt|default:post.content|truncatewords:50 }}</p>
+                    <a href="{% url 'portfolio:blog_detail' post.slug %}" class="btn btn-small">Read More</a>
+                </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-content">No blog posts available yet. Check back soon!</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

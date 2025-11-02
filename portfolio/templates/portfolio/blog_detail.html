@@ -1,0 +1,27 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ post.title }} - Blog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="blog-detail">
+        <header class="blog-header">
+            <h1>{{ post.title }}</h1>
+            <p class="blog-meta">
+                Published on {{ post.created_at|date:"F d, Y" }}
+                {% if post.updated_at != post.created_at %}
+                | Updated on {{ post.updated_at|date:"F d, Y" }}
+                {% endif %}
+            </p>
+        </header>
+
+        <div class="blog-content">
+            {{ post.content|linebreaks }}
+        </div>
+
+        <footer class="blog-footer">
+            <a href="{% url 'portfolio:blog_list' %}" class="btn btn-secondary">Back to Blog</a>
+        </footer>
+    </article>
+</div>
+{% endblock %}
