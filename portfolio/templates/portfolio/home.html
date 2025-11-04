@@ -6,10 +6,40 @@
 <div class="container">
     <section class="hero">
         <h1 class="hero-title">Welcome to My Portfolio</h1>
-        <p class="hero-subtitle">Data Analysis and Engineering Projects</p>
+        <p class="hero-subtitle">Data Analysis and Engineering Professional</p>
     </section>
 
-    <section class="intro">
+    <section class="nav-cards">
+        <a href="{% url 'portfolio:blog_list' %}" class="nav-card">
+            <div class="nav-card-image blog">
+                <span class="nav-card-icon">📝</span>
+            </div>
+            <h3 class="nav-card-title">Blog</h3>
+        </a>
+
+        <a href="{% url 'portfolio:project_list' %}" class="nav-card">
+            <div class="nav-card-image projects">
+                <span class="nav-card-icon">💼</span>
+            </div>
+            <h3 class="nav-card-title">Projects</h3>
+        </a>
+
+        <a href="#resume" class="nav-card">
+            <div class="nav-card-image resume">
+                <span class="nav-card-icon">📄</span>
+            </div>
+            <h3 class="nav-card-title">Resume</h3>
+        </a>
+
+        <a href="#about" class="nav-card">
+            <div class="nav-card-image about">
+                <span class="nav-card-icon">👤</span>
+            </div>
+            <h3 class="nav-card-title">About Me</h3>
+        </a>
+    </section>
+
+    <section id="about" class="intro">
         <div class="intro-content">
             <h2>About Me</h2>
             <p>
@@ -17,52 +47,11 @@
                 This portfolio showcases my technical expertise, analytical projects, and
                 professional insights through blog posts and project demonstrations.
             </p>
-            <div class="cta-buttons">
-                <a href="#resume" class="btn btn-primary">View Resume</a>
-                <a href="{% url 'portfolio:project_list' %}" class="btn btn-secondary">View Projects</a>
-            </div>
         </div>
     </section>
-
-    {% if featured_projects %}
-    <section class="featured-projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-grid">
-            {% for project in featured_projects %}
-            <div class="project-card">
-                <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-type">{{ project.get_project_type_display }}</p>
-                <p class="project-description">{{ project.description|truncatewords:30 }}</p>
-                <div class="project-technologies">
-                    {% for tech in project.get_technologies_list %}
-                    <span class="tech-tag">{{ tech }}</span>
-                    {% endfor %}
-                </div>
-                <a href="{% url 'portfolio:project_detail' project.slug %}" class="btn btn-small">View Details</a>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    {% endif %}
-
-    {% if recent_posts %}
-    <section class="recent-posts">
-        <h2 class="section-title">Recent Blog Posts</h2>
-        <div class="blog-list">
-            {% for post in recent_posts %}
-            <div class="blog-card">
-                <h3 class="blog-title">{{ post.title }}</h3>
-                <p class="blog-date">{{ post.created_at|date:"F d, Y" }}</p>
-                <p class="blog-excerpt">{{ post.excerpt|default:post.content|truncatewords:50 }}</p>
-                <a href="{% url 'portfolio:blog_detail' post.slug %}" class="btn btn-small">Read More</a>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    {% endif %}
 
     <section id="resume" class="resume-section">
-        <h2 class="section-title">Resume</h2>
+        <h2>Resume</h2>
         <p>Download my resume to learn more about my professional experience and qualifications.</p>
         <a href="#" class="btn btn-primary">Download Resume (PDF)</a>
         <p class="note">Note: Add your resume PDF to the static files and update this link.</p>

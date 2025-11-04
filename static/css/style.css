@@ -1,14 +1,14 @@
 /* Professional Color Scheme */
 :root {
-    --cream: #FAF9F6;
     --white: #ffffff;
+    --off-white: #f8f8f8;
     --black: #1a1a1a;
     --dark-green: #2d5016;
     --medium-green: #3a5a40;
     --light-green: #588157;
-    --border-color: #d4d4d4;
+    --border-color: #e0e0e0;
     --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-hover: rgba(45, 80, 22, 0.15);
+    --shadow-hover: rgba(45, 80, 22, 0.2);
 }
 
 * {
@@ -19,7 +19,7 @@
 
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
-    background-color: var(--cream);
+    background-color: var(--white);
     color: var(--black);
     line-height: 1.6;
     min-height: 100vh;
@@ -122,7 +122,7 @@ body {
 }
 
 .intro-content {
-    background-color: var(--white);
+    background-color: var(--off-white);
     padding: 2rem;
     border-radius: 8px;
     border-left: 4px solid var(--dark-green);
@@ -139,6 +139,96 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.8;
     color: var(--black);
+}
+
+/* Home Page Navigation Cards */
+.nav-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
+
+.nav-card {
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--medium-green) 100%);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.nav-card-image.blog::before {
+    background: linear-gradient(135deg, var(--medium-green) 0%, var(--light-green) 100%);
+}
+
+.nav-card-image.projects::before {
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--light-green) 100%);
+}
+
+.nav-card-image.resume::before {
+    background: linear-gradient(135deg, var(--light-green) 0%, var(--medium-green) 100%);
+}
+
+.nav-card-image.about::before {
+    background: linear-gradient(135deg, var(--medium-green) 0%, var(--dark-green) 100%);
+}
+
+.nav-card-icon {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.nav-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-green);
+    text-align: center;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.nav-card:hover {
+    transform: translateY(-8px);
+}
+
+.nav-card:hover .nav-card-image {
+    box-shadow: 0 12px 28px var(--shadow-hover);
+    transform: scale(1.05);
+}
+
+.nav-card:hover .nav-card-title {
+    color: var(--medium-green);
 }
 
 /* Buttons */
@@ -226,7 +316,7 @@ body {
 }
 
 .project-card {
-    background-color: var(--white);
+    background-color: var(--off-white);
     padding: 1.5rem;
     border-radius: 8px;
     border: 2px solid var(--border-color);
@@ -313,7 +403,7 @@ body {
 }
 
 .blog-card {
-    background-color: var(--white);
+    background-color: var(--off-white);
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--dark-green);
@@ -349,7 +439,7 @@ body {
 /* Blog Detail */
 .blog-detail,
 .project-detail {
-    background-color: var(--white);
+    background-color: var(--off-white);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow);
@@ -416,7 +506,7 @@ body {
 
 /* Resume Section */
 .resume-section {
-    background-color: var(--white);
+    background-color: var(--off-white);
     padding: 2rem;
     border-radius: 8px;
     border: 3px solid var(--dark-green);
