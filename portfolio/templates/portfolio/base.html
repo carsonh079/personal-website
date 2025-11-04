@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <title>{% block title %}Carson H{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <nav class="main-nav">
         <div class="container">
-            <a href="{% url 'portfolio:home' %}" class="logo">Portfolio</a>
+            <a href="{% url 'portfolio:home' %}" class="logo">Carson H</a>
             <ul class="nav-links">
                 <li><a href="{% url 'portfolio:home' %}">Home</a></li>
                 <li><a href="{% url 'portfolio:blog_list' %}">Blog</a></li>
                 <li><a href="{% url 'portfolio:project_list' %}">Projects</a></li>
-                <li><a href="#resume" class="resume-link">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -27,7 +26,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Carson H. All rights reserved.</p>
         </div>
     </footer>
 </body>
