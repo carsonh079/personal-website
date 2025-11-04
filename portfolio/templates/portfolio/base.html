@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Carson H{% endblock %}</title>
+    <title>{% block title %}Carson Honkala{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <nav class="main-nav">
         <div class="container">
-            <a href="{% url 'portfolio:home' %}" class="logo">Carson H</a>
+            <a href="{% url 'portfolio:home' %}" class="logo">Carson Honkala</a>
             <ul class="nav-links">
                 <li><a href="{% url 'portfolio:home' %}">Home</a></li>
                 <li><a href="{% url 'portfolio:blog_list' %}">Blog</a></li>
@@ -23,11 +23,5 @@
         {% block content %}
         {% endblock %}
     </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Carson H. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
