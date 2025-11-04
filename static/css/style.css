@@ -1,4 +1,6 @@
 /* Professional Color Scheme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root {
     --white: #ffffff;
     --off-white: #f8f8f8;
@@ -18,7 +20,7 @@
 }
 
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: var(--white);
     color: var(--black);
     line-height: 1.6;
@@ -99,21 +101,93 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 6rem 0 4rem 0;
     margin-bottom: 3rem;
+    position: relative;
+    overflow: visible;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 5rem;
     color: var(--dark-green);
     margin-bottom: 1rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     color: var(--medium-green);
     font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating Leaves Animation */
+.leaf {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 15s infinite;
+    pointer-events: none;
+}
+
+.leaf:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.leaf:nth-child(2) {
+    left: 85%;
+    top: 30%;
+    animation-delay: 2s;
+    animation-duration: 14s;
+}
+
+.leaf:nth-child(3) {
+    left: 20%;
+    top: 60%;
+    animation-delay: 4s;
+    animation-duration: 16s;
+}
+
+.leaf:nth-child(4) {
+    left: 75%;
+    top: 70%;
+    animation-delay: 6s;
+    animation-duration: 13s;
+}
+
+.leaf:nth-child(5) {
+    left: 50%;
+    top: 15%;
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-30px) translateX(20px) rotate(180deg);
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(0) translateX(40px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Intro Section */
@@ -167,7 +241,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     box-shadow: 0 4px 12px var(--shadow);
     transition: all 0.3s ease;
     position: relative;
@@ -588,11 +662,15 @@ body {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .hero-subtitle {
         font-size: 1.2rem;
+    }
+
+    .leaf {
+        font-size: 1.5rem;
     }
 
     .cta-buttons {
